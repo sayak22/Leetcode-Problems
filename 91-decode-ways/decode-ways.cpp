@@ -1,7 +1,7 @@
 class Solution {
 public:
 vector<int> dp;
-
+    //RECCURSION AND MEMORISATION
     int solve(int i, string s){
         //base cases
         if(i >= s.size()) return 1;

@@ -13,10 +13,10 @@ public:
         return solve(n);
     }
     */
-    vector<int> dp;
+    //Tabulation
     int climbStairs(int n) {
         if(n==0 || n==1) return 1;
-        dp.resize(n+1);
+        vector<int> dp(n+1);
         dp[0]=1;
         dp[1]=1;
         for(int i=2;i<=n;i++){

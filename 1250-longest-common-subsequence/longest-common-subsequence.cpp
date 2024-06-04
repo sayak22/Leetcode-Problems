@@ -40,10 +40,6 @@ public:
     */
 
     int solve(string t1, string t2, int n1, int n2) {
-        /*if one of the strings are empty, then there is nothing to take common
-         * in the empty string, therefore we return the lcs=0*/
-        if (n1 == 0 or n2 == 0)
-            return 0;
 
         for (int i = 0; i <=n1; i++)
             dp[i][0] = 0;

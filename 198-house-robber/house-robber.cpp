@@ -7,15 +7,8 @@ public:
 
         if (dp[n] != -1)
             return dp[n];
-
-        // NOT taking current index loot
-        int loot = solve(nums, n - 1);
-
-        // Taking current index loot and comparing it with the not taken amount
-        // and taking maximum.
-        loot = max(loot, nums[n - 1] + solve(nums, n - 2));
-
-        return dp[n] = loot;
+        //        max(NOT taking current element, taking current element)
+        return dp[n] = max(solve(nums, n - 1), nums[n - 1] + solve(nums, n - 2));
     }
 
     int rob(vector<int>& nums) {

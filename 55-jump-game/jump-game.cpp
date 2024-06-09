@@ -1,6 +1,8 @@
 class Solution {
 public:
-    bool solve(vector<int>& nums, int n) {
+
+    bool canJump(vector<int>& nums) {
+        int n= nums.size();
         int goal = n - 1; // placing our goal at the last position
         for (int i = n - 1; i >= 0; i--) { // running a reverse loop
             if (i + nums[i] >=goal) // if the current element be added to current index, can
@@ -15,11 +17,5 @@ public:
         if (goal == 0)
             return true;
         return false;
-    }
-
-    bool canJump(vector<int>& nums) {
-        // int ans = solve(nums, 0,nums.size());
-        // return ans==1;
-        return solve(nums, nums.size());
     }
 };

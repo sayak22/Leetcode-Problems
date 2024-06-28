@@ -21,6 +21,7 @@ public:
             }
         }
 
+        // same code as the above but using iterator decreased the time complexity
         // for (int i = v.size() - 1; i >= 0 && ans.size() < k; i--) {
         //     for (auto j : v[i]) {
         //         ans.push_back(j);

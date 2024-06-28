@@ -20,6 +20,14 @@ public:
                     return ans;
             }
         }
+
+        // for (int i = v.size() - 1; i >= 0 && ans.size() < k; i--) {
+        //     for (auto j : v[i]) {
+        //         ans.push_back(j);
+        //         if (ans.size() == k)
+        //             return ans;
+        //     }
+        // }
         return ans;
     }
 };

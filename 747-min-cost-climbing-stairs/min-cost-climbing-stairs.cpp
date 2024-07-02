@@ -14,7 +14,7 @@ public:
     //         return dp[i];
 
     //     return cost[i] + min(dp[i + 1] = helper(cost, i + 1, dp),
-    //                          dp[i + 2] = helper(cost, i + 2, dp));
+    //                          dp[i + 2] = helper(cost, i + 2, dp)); // adding the current cost to the value of cost of the remaining array
     // }
     // int minCostClimbingStairs(vector<int>& cost) {
     //     vector<int> dp(cost.size() + 2, -1);

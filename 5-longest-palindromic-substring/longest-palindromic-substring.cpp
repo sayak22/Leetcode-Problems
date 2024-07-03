@@ -7,7 +7,8 @@ public:
         // this is a special type of problem where we are populating diagonals
         // only above i=0, j=0, i.e for indices j>i
         for (int diff = 0; diff < s.length();
-             diff++) { // each diagonal represents diff between i and j.
+             diff++) { // each diagonal represents diff between i and j, i.e,
+                       // diff=0 is first diagonal, diff=1 is second and so on.
 
             // i represents starting index and j represents ending index of the
             // string.

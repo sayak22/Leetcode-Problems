@@ -10,6 +10,7 @@
  */
 class Solution {
 public:
+// slow fast pointer question (modify is slow and nextSum is fast pointer)
     ListNode* mergeNodes(ListNode* head) {
         ListNode* modify = head->next; // Start from the node after the initial 0
         ListNode* nextSum = modify;

@@ -2,7 +2,7 @@ class Solution {
 public:
 
 // ::::::::::::::::::::::::::::
-// :::::: RECURSION :::::::::::
+// :::::: RECCURSION :::::::::::
 // ::::::::::::::::::::::::::::
     // int countSubsetSum(vector<int>& nums, int sum, int n) {
     //     if (n == 0 and sum > 0)
@@ -21,7 +21,10 @@ public:
     //         take = countSubsetSum(nums, sum - nums[n-1], n - 1);
     //     return notTake + take;
     // }
-
+    
+// ::::::::::::::::::::::::::::
+// :::::: TABULATION ::::::::::
+// ::::::::::::::::::::::::::::
         int countSubsetSum(vector<int>& nums, int sum, int n) {
         vector<vector<int>> dp(n + 1, vector<int>(sum + 1, 0));
 

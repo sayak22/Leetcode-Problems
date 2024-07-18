@@ -13,7 +13,7 @@
 
 
  // TC: O(N) [N is the number of nodes in the tree] 
- // SC: O(N) due to the recursion stack and result vector   
+ // SC: O(N+K) due to the recursion stack and set length, K is the number of elements in to_delete   
 class Solution {
 private:
     unordered_set<int> toDeleteSet; // Stores values to be deleted

@@ -27,7 +27,7 @@ private:
 
         if (toDeleteSet.count(root->val)) {
             // If this node should be deleted:
-            // 1. Add its children to the result (if they exist).
+            // 1. Add its children to the result (if they exist), as it's children will be roots of independant trees.
             if (root->left) res.push_back(root->left);
             if (root->right) res.push_back(root->right);
             // 2. Mark this node for deletion by returning nullptr.

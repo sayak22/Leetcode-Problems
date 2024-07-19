@@ -24,7 +24,7 @@ public:
             while (!st.empty() && heights[i] < heights[st.top()]) {
                 // Pop bars and calculate area for each
                 int h = heights[st.top()]; // Height of the popped bar
-                st.pop();                  // Remove the top bar from the stack
+                st.pop(); // Remove the top bar from the stack
 
                 // Width of the rectangle
                 int width = st.empty() ? i : i - st.top() - 1;

@@ -42,7 +42,10 @@ public:
 //         return water;
 //     }
 
-
+//::::::::::::::::::::::::::::::::::::::::
+// 2 pointer approach (Space optimised):::
+//::::::::::::::::::::::::::::::::::::::::
+// TC: O(N) SC:O(1) N is the number of blocks whose heights are present in the array
    int trap(vector<int>& height) {
         int n = height.size();
         if (n == 0) return 0; // If the array is empty, no water can be trapped

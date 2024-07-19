@@ -1,5 +1,7 @@
 class Solution {
 public:
+    // TC: O(N*M) [Iterating the matrix twice]
+    // SC: O(N+M) [2 vectors of size N and M are used to store rowMin and colMax element]
     vector<int> luckyNumbers(vector<vector<int>>& matrix) {
         int m = matrix.size(); // Number of rows
         int n = matrix[0].size(); // Number of columns

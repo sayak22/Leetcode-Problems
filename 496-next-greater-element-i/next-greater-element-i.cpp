@@ -1,5 +1,10 @@
 class Solution {
 public:
+
+    // TC: O(N+M) [N is the length of nums2 and M is the length of nums1]
+    // SC: O(N) [due to the hashmap and stack used to store elements from nums2]
+
+    
     vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
         // Hash map to store the next greater element for each element in nums2
         unordered_map<int, int> nextGreater;

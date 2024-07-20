@@ -1,26 +1,33 @@
 class Solution {
 public:
     vector<vector<int>> restoreMatrix(vector<int>& rowSum, vector<int>& colSum) {
-        const int m = rowSum.size();
-        const int n = colSum.size();
-        vector<vector<int>> ans(m, vector<int>(n));
+        const int m = rowSum.size();  // Number of rows
+        const int n = colSum.size();  // Number of columns
 
+        // Initialize an empty matrix (2D vector) with zeros
+        vector<vector<int>> ans(m, vector<int>(n, 0));
+
+        // Iterate through each cell in the matrix
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                // Skip if either rowSum[i] or colSum[j] is zero
-                if (rowSum[i] == 0 || colSum[j] == 0)
-                    continue;
+                // Calculate the value to place in the cell
+                // It's the minimum of remaining row sum for row 'i' and remaining column sum for column 'j'
+                int value = min(rowSum[i], colSum[j]);
 
-                ans[i][j] = min(rowSum[i], colSum[j]);
-                rowSum[i] -= ans[i][j];
-                colSum[j] -= ans[i][j];
+                // Update the cell value
+                ans[i][j] = value;
 
-                // Early termination if both sums become zero
+                // Update remaining row sum and column sum
+                rowSum[i] -= value;
+                colSum[j] -= value;
+
+                // If both rowSum[i] and colSum[j] become zero, terminate early
                 if (rowSum[i] == 0 && colSum[j] == 0)
                     break;
             }
         }
 
+        // Return the filled-in matrix
         return ans;
     }
 };

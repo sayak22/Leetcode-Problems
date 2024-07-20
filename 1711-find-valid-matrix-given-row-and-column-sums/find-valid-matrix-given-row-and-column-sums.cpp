@@ -1,22 +1,26 @@
 class Solution {
 public:
     vector<vector<int>> restoreMatrix(vector<int>& rowSum, vector<int>& colSum) {
-        const int m = rowSum.size();  // Number of rows
-        const int n = colSum.size();  // Number of columns
-        vector<vector<int>> ans(m, vector<int>(n));  // Initialize the answer matrix
+        const int m = rowSum.size();
+        const int n = colSum.size();
+        vector<vector<int>> ans(m, vector<int>(n));
 
-        // Iterate through each cell in the matrix
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                // Fill in the cell with the minimum of remaining row sum and column sum
-                ans[i][j] = min(rowSum[i], colSum[j]);
+                // Skip if either rowSum[i] or colSum[j] is zero
+                if (rowSum[i] == 0 || colSum[j] == 0)
+                    continue;
 
-                // Update the remaining row sum and column sum
+                ans[i][j] = min(rowSum[i], colSum[j]);
                 rowSum[i] -= ans[i][j];
                 colSum[j] -= ans[i][j];
+
+                // Early termination if both sums become zero
+                if (rowSum[i] == 0 && colSum[j] == 0)
+                    break;
             }
         }
 
-        return ans;  // Return the resulting matrix
+        return ans;
     }
 };

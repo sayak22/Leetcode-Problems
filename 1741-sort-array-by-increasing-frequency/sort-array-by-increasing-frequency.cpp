@@ -1,5 +1,6 @@
 class Solution {
 public:
+    // TC:O(N) SC:O(N)
     vector<int> frequencySort(vector<int>& nums) {
         // Step 1: Create a frequency map
         unordered_map<int, int> freqMap;

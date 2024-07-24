@@ -1,5 +1,6 @@
 class Solution {
 public:
+    // TC:O(N*log(N)) SC:O(N)
     vector<int> sortJumbled(vector<int>& mapping, vector<int>& nums) {
         // Step 1: Define a helper function to translate an integer based on the custom mapping
         auto translate_integer = [&](int num) -> int {

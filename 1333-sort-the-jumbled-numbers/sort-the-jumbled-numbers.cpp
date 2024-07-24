@@ -1,37 +1,46 @@
 class Solution {
 public:
-    // TC:O(N*log(N)) SC:O(N)
+// TC:O(N*log(N)) SC:O(N)
     vector<int> sortJumbled(vector<int>& mapping, vector<int>& nums) {
-        // Step 1: Define a helper function to translate an integer based on the custom mapping
-        auto translate_integer = [&](int num) -> int {
-            if (num == 0) {
-                return mapping[0]; // Special case: map '0' directly
-            }
-            int res = 0;
-            int cur_mult = 1; // Multiplier for constructing the translated number
-            while (num > 0) {
-                int digit = num % 10; // Extract the last digit
-                num /= 10; // Move to the next digit
-                res += mapping[digit] * cur_mult; // Add the mapped digit to the result
-                cur_mult *= 10; // Update the multiplier for the next digit position
-            }
-            return res;
-        };
+        // Step 1: Create a vector of pairs to store (mappedValue, originalIndex)
+        vector<pair<int, int>> storePairs;
 
-        // Step 2: Create a map to store the translated values for each unique number
-        unordered_map<int, int> number_mapping;
-        for (int num : nums) {
-            // If not already computed, translate the number and store it
-            if (number_mapping.find(num) == number_mapping.end()) {
-                number_mapping[num] = translate_integer(num);
+        // Step 2: Iterate through each number in the 'nums' array
+        for (int i = 0; i < nums.size(); ++i) {
+            int mappedValue = 0; // Initialize the translated value for the current number
+            int temp = nums[i]; // Store the current number in a temporary variable
+
+            // Step 3: Translate the number based on the custom mapping
+            // Start making changes from the units place.
+            int place = 1; // Multiplier for constructing the translated number
+
+            // If the value initially is 0, directly return mapping[0] and the index.
+            if (temp == 0) {
+                storePairs.push_back({mapping[0], i});
+                continue; // Move to the next number
             }
+
+            // Repeat the process for units, tenths, hundredths, and so on.
+            while (temp != 0) {
+                int digit = temp % 10; // Extract the last digit
+                temp /= 10; // Move to the next digit
+                mappedValue = place * mapping[digit] + mappedValue; // Add the mapped digit
+                place *= 10; // Update the multiplier for the next digit position
+            }
+
+            // Store the (mappedValue, originalIndex) pair
+            storePairs.push_back({mappedValue, i});
         }
 
-        // Step 3: Sort the nums array using the custom mapping
-        sort(nums.begin(), nums.end(), [&](int a, int b) {
-            return number_mapping[a] < number_mapping[b];
-        });
+        // Step 4: Sort the 'storePairs' array in non-decreasing order by the first value (default).
+        sort(storePairs.begin(), storePairs.end());
 
-        return nums;
+        // Step 5: Create the final sorted answer array
+        vector<int> answer;
+        for (auto pair : storePairs) {
+            answer.push_back(nums[pair.second]); // Retrieve the original number using the index
+        }
+
+        return answer; // Return the sorted array
     }
 };

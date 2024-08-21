@@ -1,5 +1,7 @@
 class Solution {
 public:
+
+// TC:O(N)
     int evalRPN(vector<string>& tokens) {
         stack<int> stk; // Stack to store intermediate results
         for (string str : tokens) {

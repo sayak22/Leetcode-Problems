@@ -1,5 +1,6 @@
 class Solution {
 public:
+// TC:O(N + log(deno)) SC:(O)
     string fractionAddition(string expression) {
         int nume = 0; // Numerator
         int deno = 1; // Denominator

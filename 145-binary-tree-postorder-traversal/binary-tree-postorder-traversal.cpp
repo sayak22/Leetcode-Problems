@@ -11,13 +11,23 @@
  */
 class Solution {
 public:
-    vector<int> post;
+    vector<int> post; // To store the postorder traversal result
+
+// TC:O(N), SC:O(N)
     vector<int> postorderTraversal(TreeNode* root) {
-        TreeNode* temp=root;
-        if(root==NULL) return post;
-            postorderTraversal(root->left);
-            postorderTraversal(root->right);
-            post.push_back(temp->val);
+        if (root == nullptr) {
+            return post; // Base case: empty tree
+        }
+
+        // Recurse on the left subtree
+        postorderTraversal(root->left);
+
+        // Recurse on the right subtree
+        postorderTraversal(root->right);
+
+        // Process the current node (add its value to the result)
+        post.push_back(root->val);
+
         return post;
     }
 };

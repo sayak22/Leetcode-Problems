@@ -13,7 +13,7 @@ class Solution {
 public:
     vector<int> post; // To store the postorder traversal result
 
-// TC:O(N), SC:O(N)
+// TC:O(N), SC:O(H) recursive call stack for height of the tree.
     vector<int> postorderTraversal(TreeNode* root) {
         if (root == nullptr) {
             return post; // Base case: empty tree

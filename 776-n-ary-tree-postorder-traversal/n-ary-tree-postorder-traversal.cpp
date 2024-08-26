@@ -20,15 +20,20 @@ public:
 
 class Solution {
 public:
-    vector<int> ans;
+    vector<int> ans; // To store the postorder traversal result
+
     vector<int> postorder(Node* root) {
-        if(root==NULL) return ans;
+        if (root == nullptr)
+            return ans; // Base case: empty tree
 
-        for(Node* it: root->children){
-            postorder(it);
+        // Recurse on each child node
+        for (Node* child : root->children) {
+            postorder(child);
         }
-        ans.push_back(root->val);
-        return ans;
 
+        // Process the current node (add its value to the result)
+        ans.push_back(root->val);
+
+        return ans;
     }
 };

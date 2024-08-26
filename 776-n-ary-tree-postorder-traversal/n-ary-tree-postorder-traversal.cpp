@@ -20,6 +20,7 @@ public:
 
 class Solution {
 public:
+    //TC:O(N) SC:O(N)
     vector<int> ans; // To store the postorder traversal result
 
     vector<int> postorder(Node* root) {

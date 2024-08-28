@@ -19,12 +19,15 @@ public:
     }
 
     int findBalance(TreeNode* root, bool& ans){
+        //Base case
         if(!root) return NULL;
 
         int leftHeight=findBalance(root->left, ans);
         int rightHeight=findBalance(root->right, ans);
 
+     // if at any node depth diff b/w left and right is more than 1 that means the tree is not balanced.
         if(abs(leftHeight-rightHeight)>1) ans= false;
-        return max(leftHeight,rightHeight)+1;
+    
+        return max(leftHeight,rightHeight)+1; //return the depth encountered till now.
     }
 };

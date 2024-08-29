@@ -21,6 +21,7 @@ public:
         if (!node) return 0;
         
         // Calculate the maximum path sum for the left and right subtrees
+        // we are taking 0 here because if dfs returns -ve, better to not add it to the path(be it left or right).
         int leftSum = max(0, dfs(node->left, maxSum));
         int rightSum = max(0, dfs(node->right, maxSum));
         

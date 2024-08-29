@@ -45,13 +45,12 @@ bool helper(const string& s1, const string& s2, const string& s3, int i, int j, 
     bool match1 = false, match2 = false;
     int k = i + j;  // Calculate index k for s3 based on i and j
 
-    // Check if s1[i] matches s3[k] and recursively check further
+    // Check if the characters match i.e, s1[i] matches s3[k] and recursively check further
     match1 = (i < s1.size() && s1[i] == s3[k]) and helper(s1, s2, s3, i + 1, j, dp);
 
 
-    // Check if s2[j] matches s3[k] and recursively check further
+    // Check if the characters match i.e, s2[j] matches s3[k] and recursively check further
     match2 =  (j < s2.size() && s2[j] == s3[k]) and helper(s1, s2, s3, i, j + 1, dp);
-
 
     // Store the result in dp table before returning
     dp[i][j] = match1 || match2;

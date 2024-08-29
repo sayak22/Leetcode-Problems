@@ -1,6 +1,6 @@
 class Solution {
 public:
-/*
+/* ::::::::::::: RECURSIVE SOLUTION ::::::::::::::
     bool isInterleave(string s1, string s2, string s3) {
         return helper(s1, s2, s3, 0, 0, 0);
     }
@@ -21,7 +21,7 @@ public:
         return match1 || match2;
     }
 */
-
+// :::::::::: MEMORISATION ::::::::::::
   bool isInterleave(string s1, string s2, string s3) {
     int m = s1.size(), n = s2.size();
     if (m + n != s3.size()) return false;  // If lengths don't add up, return false
@@ -46,14 +46,12 @@ bool helper(const string& s1, const string& s2, const string& s3, int i, int j, 
     int k = i + j;  // Calculate index k for s3 based on i and j
 
     // Check if s1[i] matches s3[k] and recursively check further
-    if (i < s1.size() && s1[i] == s3[k]) {
-        match1 = helper(s1, s2, s3, i + 1, j, dp);
-    }
+    match1 = (i < s1.size() && s1[i] == s3[k]) and helper(s1, s2, s3, i + 1, j, dp);
+
 
     // Check if s2[j] matches s3[k] and recursively check further
-    if (j < s2.size() && s2[j] == s3[k]) {
-        match2 = helper(s1, s2, s3, i, j + 1, dp);
-    }
+    match2 =  (j < s2.size() && s2[j] == s3[k]) and helper(s1, s2, s3, i, j + 1, dp);
+
 
     // Store the result in dp table before returning
     dp[i][j] = match1 || match2;

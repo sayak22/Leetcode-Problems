@@ -25,17 +25,17 @@ public:
         else if (dp[i] != -1)
             return dp[i]; // check if computed earlier or not
 
+        // if the i and i+1 th number is between 10 to
+        // 26 then this is executed, i.e, decode
+        // taking i th character, or taking i and i+1
+        // th character together, and decode the rest
         else if (s[i] == '1' or (s[i] == '2' and s[i + 1] <= '6'))
-            return dp[i] =
-                       solve(i + 1, s, dp) +
-                       solve(i + 2, s,
-                             dp); // if the i and i+1 th number is between 10 to
-                                  // 26 then this is executed, i.e, decode
-                                  // taking i th character, or taking i and i+1
-                                  // th character together, and decode the rest
+            return dp[i] = solve(i + 1, s, dp) + solve(i + 2, s, dp);
+
+        // else just take a single
+        // character and decode the rest
         else
-            return dp[i] = solve(i + 1, s, dp); // else just take a single
-                                                // character and decode the rest
+            return dp[i] = solve(i + 1, s, dp);
     }
 
     int numDecodings(string s) {

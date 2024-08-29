@@ -12,6 +12,7 @@ public:
     // Encodes a tree to a single string.
     string serialize(TreeNode* root) {
         if (!root) return "#"; // Null placeholder
+        // Serialize the current node's value, left subtree, and right subtree
         return to_string(root->val) + "," + serialize(root->left) + "," + serialize(root->right);
     }
 
@@ -26,12 +27,15 @@ private:
         string token;
         getline(iss, token, ',');
         if (token == "#") return nullptr; // Null placeholder
+        // Create a new node with the current value
         TreeNode* node = new TreeNode(stoi(token));
+        // Recursively build left and right subtrees
         node->left = deserializeHelper(iss);
         node->right = deserializeHelper(iss);
         return node;
     }
 };
+
 
 
 // Your Codec object will be instantiated and called as such:

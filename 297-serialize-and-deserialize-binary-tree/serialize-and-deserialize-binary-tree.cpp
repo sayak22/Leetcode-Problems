@@ -18,6 +18,7 @@ public:
 
     // Decodes your encoded data to tree.
     TreeNode* deserialize(string data) {
+        // input string stream (istringstream) class treats string as a stream
         istringstream iss(data);
         return deserializeHelper(iss);
     }

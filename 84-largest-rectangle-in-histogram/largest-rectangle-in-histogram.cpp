@@ -1,7 +1,7 @@
 class Solution {
 public:
 /*Explanation:
-1 -We use a stack to keep track of the indices of bars in increasing order of their heights.
+1 -We use a stack(monotonic) to keep track of the indices of bars in increasing order of their heights.
 
 2 -For each bar, we check whether it can extend the current rectangle or if it starts a new rectangle.
 

@@ -5,7 +5,7 @@ public:
         for(int it: chalk)
             totalChalks+=it;
         
-        while(totalChalks<=k) k-=totalChalks;
+        k%=totalChalks;
 
         for(int i=0;i<chalk.size();i++){
             if(chalk[i]>k) return i;

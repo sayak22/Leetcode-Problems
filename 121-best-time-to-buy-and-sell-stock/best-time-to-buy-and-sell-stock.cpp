@@ -5,11 +5,10 @@ public:
         int minPrice = prices[0];
 
         for (int price : prices) {
+            // we need to maximise the profit against the minimum price till now
+            // and current price.
             minPrice = min(minPrice, price);
-            // if (price > maxPrice) {
-            // maxPrice = price;
             maxProfitTillNow = max(maxProfitTillNow, price - minPrice);
-            // }
         }
 
         return maxProfitTillNow;
